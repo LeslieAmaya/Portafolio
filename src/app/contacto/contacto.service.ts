@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactoService {
-  api = "http://localhost:3000";
+  api = "https://apiportafolio-0v2l.onrender.com";
 
   constructor(private http: HttpClient) { }
 
