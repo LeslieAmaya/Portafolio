@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ContactoService {
-  api = "localhost:3000";
+  api = "https://apiportafolio-k678.onrender.com/api";
 
   constructor(private http: HttpClient) { }
 
   registrarOp(data: any): void {
+    console.log(data);
     this.http.post<any>(this.api, data).subscribe(response => {
         // Maneja la respuesta aquí
         console.log(response.data);

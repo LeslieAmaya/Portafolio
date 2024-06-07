@@ -27,13 +27,14 @@ export class ContactoComponent {
   }
 
   registrarOp() {
+    console.log("hola c:")
     const regOp = {
       nombre: this.nombre,
       edad: this.edad,
       email: this.email,
       opinion: this.opinion
     };
-    this.http.post('https://apiportafolio-k678.onrender.com', regOp)
+    this.http.post('https://apiportafolio-k678.onrender.com/api', regOp)
       .subscribe(response => {
         console.log('Opinion registrada', response)
       });
