@@ -2,6 +2,7 @@ import { Component, Inject, inject } from '@angular/core';
 import { ContactoService } from './contacto.service';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contacto',
@@ -16,23 +17,26 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class ContactoComponent {
   nombre: string = '';
-  edad: number = 0;
+  edad: number | null = null;
   email: string = '';
   opinion: string = '';
-  form: FormGroup
 
   contactoService = inject(ContactoService);
-  constructor(private fb: FormBuilder) {
-    this.form = this.fb.group({
-      nombre:[''],
-      edad: [''],
-      email: [''],
-      opinion: ['']
-    })
+  constructor(private http: HttpClient) {
+
   }
 
   registrarOp() {
-    this.contactoService.registrarOp(this.form.value);
+    const regOp = {
+      nombre: this.nombre,
+      edad: this.edad,
+      email: this.email,
+      opinion: this.opinion
+    };
+    this.http.post('https://apiportafolio-k678.onrender.com', regOp)
+      .subscribe(response => {
+        console.log('Opinion registrada', response)
+      });
   }
 }
 

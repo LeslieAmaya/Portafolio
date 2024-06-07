@@ -1,7 +1,21 @@
 <div class="grid h-screen">
     <div class="text-white text-2xl text-start relative bottom-0 right-0 mt-10 ml-40">
-        <h1 class="text-center text-6xl font-bold" > <strong> Mis Proyectos </strong> </h1>
-        <p class="text-start mt-10 font-serif" >Aquí podrás ver los proyectos desarrollados a lo largo de mi carrera
-            en desarrollo de software</p>
+        <br>
+        <h1 class="text-center text-6xl font-bold"> <strong> Mis Proyectos </strong> </h1>
+
+        <p class="text-start mt-10 font-mono text-justify">Aquí podrás ver los proyectos desarrollados a lo largo de mi carrera
+            en desarrollo de software, así como ejercicios en clase sobre patrones de arquitectura, de software y
+            algunos ejemplos</p>
+        <br>
     </div>
-</div>
+
+
+    <ul class="list-group mr-40 ml-40 ">
+        <li class="list-group-item text-center text-4xl font-bold">Repositorios en GitHub:</li>
+        <li class="list-group-item" aria-current="true" *ngFor="let repo of repos">
+            <a class="font-semibold" [href]="repo.html_url" target="_blank" rel="noopener noreferrer">
+                {{ repo.name }} </a>
+            <br>
+            <h1> {{repo.description}} </h1>
+        </li>
+    </ul>

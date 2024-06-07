@@ -9,25 +9,25 @@
                     </div>
                     <br>
                     <div class="user">
-                        <form [formGroup]="form" (ngSubmit)="registrarOp()" novalidate>
+                        <div (ngSubmit)="registrarOp()">
                             <div class="form-group">
                                 <input type="name" class=" form-control form-control-user" id="exampleInputEmail"
-                                    placeholder="Ingresa tu nombre" formControlName="nombre">
+                                    placeholder="Ingresa tu nombre" [(ngModel)]="nombre" name="nombre">
                             </div>
                             <div class="form-group">
                                 <input type="number" class="form-control form-control-user" id="exampleInput"
-                                    placeholder="Ingresa tu edad" formControlName="edad">
+                                    placeholder="Ingresa tu edad" [(ngModel)]="edad" name="edad">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control form-control-user" id="exampleInputPassword"
-                                    placeholder="Ingresa tu email" formControlName="email">
+                                    placeholder="Ingresa tu email" [(ngModel)]="email" name="email">
                             </div>
                             <div class="form-group ">
                                 <input type="text" class="form-control form-control-user" id="exampleInputText"
-                                    placeholder="Ingresa tu opinion" formControlName="opinion">
+                                    placeholder="Ingresa tu opinion" [(ngModel)]="opinion" name="email">
                             </div>
-                            <button type="submit" class="btn btn-user btn-block"> ENVIAR </button>
-                        </form>
+                            <button type="submit" (click)="registrarOp" class="btn btn-user btn-block"> ENVIAR </button>
+                        </div>
                     </div>
                     <hr>
                 </div>
